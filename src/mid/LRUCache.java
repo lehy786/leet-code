@@ -74,7 +74,7 @@ public class LRUCache {
         this.value.put(key, tail);
     }
 
-    class Node {
+    static class Node {
         Node pre;
         Node next;
         Integer key;
