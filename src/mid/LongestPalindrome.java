@@ -4,9 +4,7 @@ public class LongestPalindrome {
     public static String longestPalindrome(String s) {
         if (s == null || s.length() < 2)
             return s;
-        int max = 1;
-        int start= 0;
-        int length = s.length();
+        int max = 1, start= 0, length = s.length();
         boolean[][] dp = new boolean[length][length];
         for (int i = 0; i < length; i++) {
             dp[i][i] = true;
@@ -17,7 +15,7 @@ public class LongestPalindrome {
             }
         }
 
-        for (int len = 3; len < length; len++) { // 子串长度
+        for (int len = 3; len <= length; len++) { // 子串长度
             for (int i = 0; i <= length - len; i++) { //起始地址
                 int j = len + i - 1; // 结束地址
                 if (s.charAt(i) == s.charAt(j) && dp[i+1][j-1]) {
@@ -28,12 +26,12 @@ public class LongestPalindrome {
             }
         }
 
-        return s.substring(start, max);
+        return s.substring(start, start + max);
     }
 
 
     public static void main(String[] args) {
-        System.out.println(longestPalindrome("babad"));
+        System.out.println(longestPalindrome("cbbd"));
     }
 
 }
