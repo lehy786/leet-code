@@ -5,10 +5,10 @@ public class LongestCommonSubsequence {
         int len1 = text1.length(), len2 = text2.length(), max = 0;
         int [][]dp = new int[len1+1][len2+1];
 
-        for (int i = 0; i <= len1; i++)
-            dp[i][0] = 0;
-        for (int i = 0; i <= len2; i++)
-            dp[0][i] = 0;
+//        for (int i = 0; i <= len1; i++)
+//            dp[i][0] = 0;
+//        for (int i = 0; i <= len2; i++)
+//            dp[0][i] = 0;
 
         for (int i = 1; i <= len1; i++) {
             for (int j = 1; j <= len2; j++) {
