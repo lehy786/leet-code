@@ -1,4 +1,4 @@
-package mid;
+package hashtable;
 
 import java.util.ArrayList;
 import java.util.Collections;

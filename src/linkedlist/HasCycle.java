@@ -1,4 +1,4 @@
-package easy;
+package linkedlist;
 
 public class HasCycle {
     class ListNode {

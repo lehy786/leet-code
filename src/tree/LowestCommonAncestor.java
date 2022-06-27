@@ -1,4 +1,4 @@
-package mid;
+package tree;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -33,7 +33,7 @@ public class LowestCommonAncestor {
         int sizea = list.get(0).size();
         int sizeb = list.get(1).size();
         TreeNode res = null;
-        for (int a = 0, b = 0; a < sizea && b < sizeb; a++,b++) {
+        for (int a = 0, b = 0; a < sizea && b < sizeb; a++, b++) {
             TreeNode na = list.get(0).get(a);
             TreeNode nb = list.get(1).get(b);
             if (na == nb || na.val == nb.val) {
@@ -56,10 +56,7 @@ public class LowestCommonAncestor {
             if (set.isEmpty())
                 return true;
         }
-        if (dfs(root.left, set)) {
-            return true;
-        }
-        if (dfs(root.right, set)) {
+        if (dfs(root.left, set) || dfs(root.right, set)) {
             return true;
         }
         cur.remove(cur.size() - 1);
@@ -79,5 +76,18 @@ public class LowestCommonAncestor {
         TreeNode res = lowestCommonAncestor(root, root.left, root.left.right.right);
         System.out.println(res.val);
 
+    }
+
+    public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || p == root || q == root) return root;
+        TreeNode left = lowestCommonAncestor1(root.left, p, q);
+        TreeNode right = lowestCommonAncestor1(root.right, p, q);
+        if (left == null) {
+            return right;
+        } else if (right == null){
+            return left;
+        } else {
+            return root;
+        }
     }
 }

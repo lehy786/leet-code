@@ -1,4 +1,4 @@
-package hard;
+package linkedlist;
 
 public class ReverseKGroup {
 
